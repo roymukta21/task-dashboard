@@ -1,48 +1,27 @@
-import { useEffect, useState } from "react";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+import DashboardLayout from "../../layout/DashboardLayout";
+import AnalyticsChart from "../components/AnalyticsChart";
+import DashboardCards from "../components/DashboardCards";
+import ProgressChart from "../components/ProgressChart";
 import StatsCard from "../components/StatsCard";
-import API from "../services/api";
+import TimeTracker from "../components/TimeTracker";
 
-function Dashboard() {
-  const [stats, setStats] = useState({
-    tasks: 0,
-    projects: 0,
-    completed: 0,
-  });
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await API.get("/api/dashboard");
-        setStats(res.data);
-      } catch (error) {
-        console.log("Error fetching data");
-      }
-    };
-
-    fetchData();
-  }, []);
-
+export default function Dashboard() {
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      {/* Sidebar */}
-      <Sidebar />
+    <DashboardLayout>
+      <h1 className="text-3xl font-bold mb-6">Dashboard</h1>
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        <Navbar />
-
-        <div className="p-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <StatsCard title="Total Tasks" value={stats.tasks} />
-            <StatsCard title="Total Projects" value={stats.projects} />
-            <StatsCard title="Completed Tasks" value={stats.completed} />
-          </div>
-        </div>
+      <div className="grid grid-cols-4 gap-6 mb-6">
+        <StatsCard title="Total Projects" value="24" green />
+        <StatsCard title="Ended Projects" value="10" />
+        <StatsCard title="Running Projects" value="12" />
+        <StatsCard title="Pending Projects" value="2" />
       </div>
-    </div>
+
+      <div className="grid grid-cols-3 gap-6">
+        <AnalyticsChart />
+        <ProgressChart />
+        <TimeTracker />
+      </div>
+    </DashboardLayout>
   );
 }
-
-export default Dashboard;

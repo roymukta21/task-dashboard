@@ -18,7 +18,7 @@ function Login() {
         {
           email,
           password,
-        }
+        },
       );
 
       localStorage.setItem("token", res.data.token);
@@ -54,13 +54,11 @@ function Login() {
             required
           />
 
-          {error && (
-            <p className="text-red-500 text-sm text-center">{error}</p>
-          )}
+          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition"
+            className="w-full bg-green-900 text-white py-3 rounded-lg hover:bg-green-700 transition"
           >
             Login
           </button>

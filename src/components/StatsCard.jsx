@@ -1,12 +1,20 @@
-function StatsCard({ title, value }) {
+import { motion } from "framer-motion";
+
+const StatsCard = ({ title, value, green }) => {
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-md">
-      <h3 className="text-gray-500 text-sm">{title}</h3>
-      <p className="text-2xl font-bold mt-2 text-green-600">
-        {value}
-      </p>
-    </div>
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 300 }}
+      className={`p-6 rounded-2xl ${
+        green
+          ? "bg-gradient-to-br from-green-900 to-emerald-700 text-white"
+          : "bg-[#f8fafc]"
+      }`}
+    >
+      <h3 className="text-sm">{title}</h3>
+      <h1 className="text-3xl font-bold mt-2">{value}</h1>
+    </motion.div>
   );
-}
+};
 
 export default StatsCard;
