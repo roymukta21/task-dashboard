@@ -91,7 +91,7 @@ const AnalyticsSection = () => {
       <div className="lg:col-span-1 bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
         <div>
           <p className="text-gray-500 text-sm font-medium mb-2">Reminders</p>
-          <h2 className="text-xl font-semibold text-emerald-800 leading-tight">
+          <h2 className="text-xl font-semibold text-emerald-900 leading-tight">
             Meeting with Arc Company
           </h2>
           <p className="text-gray-400 text-sm mt-2 mb-6">

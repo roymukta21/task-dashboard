@@ -1,4 +1,3 @@
-//import ProjectCard from "./ProjectCard";
 import { Plus } from "lucide-react";
 
 const projects = [
@@ -32,7 +31,7 @@ const projects = [
 const DashboardCards = () => {
   return (
     <div>
-      {/* Project Card - 70% height */}
+      {/* Project Card */}
       <div className="flex-[7] mt-2 p-2">
         <div className="bg-white rounded-2xl shadow-md p-5">
           {/* Header */}
