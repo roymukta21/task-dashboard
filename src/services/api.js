@@ -1,17 +1,16 @@
 import axios from "axios";
 
-const API = axios.create({
-  baseURL: "https://task-api-eight-flax.vercel.app",
+const api = axios.create({
+  baseURL: "https://task-api-eight-flax.vercel.app/api",
 });
 
-API.interceptors.request.use((config) => {
+// Attach JWT automatically
+api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
-
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
-
   return config;
 });
 
-export default API;
+export default api;
